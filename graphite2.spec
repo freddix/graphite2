@@ -1,11 +1,11 @@
 Summary:	Reimplementation of the SIL Graphite text processing engine
 Name:		graphite2
-Version:	1.2.3
+Version:	1.2.4
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/silgraphite/%{name}-%{version}.tgz
-# Source0-md5:	7042305e4208af4c2d5249d814ccce58
+# Source0-md5:	2ef839348fe28e3b923bf8cced440227
 URL:		http://projects.palaso.org/projects/graphitedev
 BuildRequires:	cmake
 BuildRequires:	libstdc++-devel
@@ -38,6 +38,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 /usr/sbin/ldconfig -n $RPM_BUILD_ROOT%{_libdir}
 
